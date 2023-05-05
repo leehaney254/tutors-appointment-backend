@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: tutors_appointment_backend_development
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +60,8 @@ development:
 test:
   <<: *default
   database: tutors_appointment_backend_test
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,5 +86,5 @@ test:
 production:
   <<: *default
   database: tutors_appointment_backend_production
-  username: tutors_appointment_backend
-  password: <%= ENV["TUTORS_APPOINTMENT_BACKEND_DATABASE_PASSWORD"] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>

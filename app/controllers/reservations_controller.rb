@@ -3,9 +3,18 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    response = []
+    @reservations = Reservation.where(user_id: data)
 
-    render json: @reservations
+    @reservations.each do |reservation|
+      response << {
+        id: reservation.id,
+        user_id: reservation.user_id,
+        tutor_id: reservation.tutor_id,
+        date_reserved: reservation.date,
+      }
+    end
+    render json: response
   end
 
   # GET /reservations/1
@@ -17,8 +26,15 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
+    response = {
+      id: @reservation.id,
+      user_id: @reservation.user_id,
+      tutor_id: @reservation.tutor_id,
+      date_reserved: @reservation.date,
+    }
+
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render json: response , status: :created, location: @reservation
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -26,8 +42,15 @@ class ReservationsController < ApplicationController
 
   # PATCH/PUT /reservations/1
   def update
+    response = {
+      id: @reservation.id,
+      user_id: @reservation.user_id,
+      tutor_id: @reservation.tutor_id,
+      date_reserved: @reservation.date,
+    }
+
     if @reservation.update(reservation_params)
-      render json: @reservation
+      render json: response
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end

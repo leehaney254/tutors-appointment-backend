@@ -1,4 +1,4 @@
-class Api:V1:TutorsController < ApplicationController
+class Api::V1::TutorsController < ApplicationController
   before_action :set_tutor, only: %i[show update destroy]
 
   # GET /tutors
@@ -8,7 +8,7 @@ class Api:V1:TutorsController < ApplicationController
     if @tutor
       render json: @tutors
     else
-      render json: { message: "There are no tutors" }, status: :not_found
+      render json: { message: 'There are no tutors' }, status: :not_found
     end
   end
 

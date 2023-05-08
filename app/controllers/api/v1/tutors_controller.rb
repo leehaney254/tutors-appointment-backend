@@ -5,10 +5,10 @@ class Api::V1::TutorsController < ApplicationController
   def index
     @tutors = Tutor.all
 
-    if @tutor
-      render json: @tutors
-    else
+    if @tutors.empty?
       render json: { message: 'There are no tutors!' }, status: :not_found
+    else
+      render json: @tutors
     end
   end
 
@@ -26,7 +26,7 @@ class Api::V1::TutorsController < ApplicationController
     @tutor = Tutor.new(tutor_params)
 
     if @tutor.save
-      render json: @tutor, status: :created, location: @tutor
+      render json: @tutor, status: :created
     else
       render json: @tutor.errors, status: :unprocessable_entity
     end

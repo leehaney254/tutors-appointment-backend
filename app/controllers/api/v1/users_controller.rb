@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
     if @users
       render json: @users
     else
-      render json: 'There is no user!'
+      render json: { message: 'There are no user!' }, status: :not_found
     end
   end
 
@@ -49,8 +49,8 @@ class Api::V1::UsersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    @user = nil
+    rescue ActiveRecord::RecordNotFound
+      @user = nil
   end
 
   # Only allow a list of trusted parameters through.

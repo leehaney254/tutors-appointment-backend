@@ -8,13 +8,17 @@ class Api::V1::TutorsController < ApplicationController
     if @tutor
       render json: @tutors
     else
-      render json: { message: 'There are no tutors' }, status: :not_found
+      render json: { message: 'There are no tutors!' }, status: :not_found
     end
   end
 
   # GET /tutors/1
   def show
-    render json: @tutor
+    if @tutor
+      render json: @tutor
+    else
+      render json: 'The user you are trying to find does not exist'
+    end
   end
 
   # POST /tutors
@@ -47,6 +51,8 @@ class Api::V1::TutorsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_tutor
     @tutor = Tutor.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @tutor = nil
   end
 
   # Only allow a list of trusted parameters through.

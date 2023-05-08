@@ -3,10 +3,10 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
-    if @users
-      render json: @users
-    else
+    if @users.empty?
       render json: { message: 'There are no user!' }, status: :not_found
+    else
+      render json: @users
     end
   end
 
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     if @user
       render json: @user
     else
-      render json: 'The user you are trying to find does not exist'
+      render json: 'The user you are trying to find does not exist', status: :not_found
     end
   end
 
@@ -24,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end

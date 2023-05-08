@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
     if @users
       render json: @users
     else
-      render 'There is no user!'
+      render json: 'There is no user!'
     end
   end
 

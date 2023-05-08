@@ -4,7 +4,11 @@ class Api::V1::ReservationsController < ApplicationController
   # GET /reservations
   def index
     response = []
-    @reservations = Reservation.where(user_id: data)
+    if params[:user_id]
+      @reservations = Reservation.where(user_id: params[:user_id])
+    else
+      @reservations = Reservation.all
+    end
 
     @reservations.each do |reservation|
       response << {

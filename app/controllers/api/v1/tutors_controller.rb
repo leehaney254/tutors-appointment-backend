@@ -51,8 +51,8 @@ class Api::V1::TutorsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_tutor
     @tutor = Tutor.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      @tutor = nil
+  rescue ActiveRecord::RecordNotFound
+    @tutor = nil
   end
 
   # Only allow a list of trusted parameters through.

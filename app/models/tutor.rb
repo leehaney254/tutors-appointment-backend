@@ -1,9 +1,9 @@
 class Tutor < ApplicationRecord
   has_many :user
 
-  validate :name, presene: true
-  validate :image, presene: true
-  validate :speciality, presene: true
-  validate :bio, presene: true
-  validates :price, presence: true, numericality: { greater_than: 0 }
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :speciality, presence: true
+  validates :bio, presence: true
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end

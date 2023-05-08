@@ -1,11 +1,15 @@
-class TutorsController < ApplicationController
+class Api:V1:TutorsController < ApplicationController
   before_action :set_tutor, only: %i[show update destroy]
 
   # GET /tutors
   def index
     @tutors = Tutor.all
 
-    render json: @tutors
+    if @tutor
+      render json: @tutors
+    else
+      render json: { message: "There are no tutors" }, status: :not_found
+    end
   end
 
   # GET /tutors/1

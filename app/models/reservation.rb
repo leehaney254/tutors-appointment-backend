@@ -6,4 +6,3 @@ class Reservation < ApplicationRecord
   validates :tutor_id, presence: true
   validates :date, presence: true
 end
-

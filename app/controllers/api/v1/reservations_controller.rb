@@ -26,7 +26,7 @@ class Api::V1::ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
-    
+
 
     if @reservation.save
       response = {
@@ -44,7 +44,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   # PATCH/PUT /reservations/1
   def update
-
     if @reservation.update(reservation_params)
       render json: @reservation
     else
@@ -55,10 +54,10 @@ class Api::V1::ReservationsController < ApplicationController
   # DELETE /reservations/1
   def destroy
     @reservation.destroy
-    if @reservation
-      @reservation.destroy
-      render json: "Deleted successfully"
-    end
+    return unless @reservation
+
+    @reservation.destroy
+    render json: 'Deleted successfully'
   end
 
   private

@@ -1,4 +1,5 @@
 class Api::V1::TutorsController < ApplicationController
+  before_action :authorized
   before_action :set_tutor, only: %i[show update destroy]
 
   # GET /tutors
@@ -26,7 +27,7 @@ class Api::V1::TutorsController < ApplicationController
     @tutor = Tutor.new(tutor_params)
 
     if @tutor.save
-      render json: @tutor, status: :created
+      render json: { message: 'Created successfully' }, status: :created
     else
       render json: @tutor.errors, status: :unprocessable_entity
     end
@@ -35,7 +36,7 @@ class Api::V1::TutorsController < ApplicationController
   # PATCH/PUT /tutors/1
   def update
     if @tutor.update(tutor_params)
-      render json: @tutor
+      render json: { message: 'Updated successfully' }
     else
       render json: @tutor.errors, status: :unprocessable_entity
     end
@@ -44,6 +45,10 @@ class Api::V1::TutorsController < ApplicationController
   # DELETE /tutors/1
   def destroy
     @tutor.destroy
+    return unless @tutor
+
+    @tutor.destroy
+    render json: { message: 'Deleted successfully' }
   end
 
   private

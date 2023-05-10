@@ -1,5 +1,6 @@
 class Tutor < ApplicationRecord
-  has_many :user
+  has_many :users
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence: true
   validates :image, presence: true

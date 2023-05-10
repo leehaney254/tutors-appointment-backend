@@ -1,4 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
+  before_action :authorized
   before_action :set_reservation, only: %i[show update destroy]
 
   # GET /reservations
@@ -11,7 +12,7 @@ class Api::V1::ReservationsController < ApplicationController
         id: reservation.id,
         user_id: reservation.user_id,
         tutor_id: reservation.tutor_id,
-        date_reserved: reservation.date
+        date: reservation.date
       }
     end
     render json: response
@@ -27,14 +28,8 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      response = {
-        id: @reservation.id,
-        user_id: @reservation.user_id,
-        tutor_id: @reservation.tutor_id,
-        date_reserved: @reservation.date
-      }
 
-      render json: response, status: :created, location: @reservation
+      render json: { message: 'Created successfully' }, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -43,7 +38,7 @@ class Api::V1::ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   def update
     if @reservation.update(reservation_params)
-      render json: @reservation
+      render json: { message: 'Updated successfully' }
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -55,7 +50,7 @@ class Api::V1::ReservationsController < ApplicationController
     return unless @reservation
 
     @reservation.destroy
-    render json: 'Deleted successfully'
+    render json: { message: 'Deleted successfully' }
   end
 
   private

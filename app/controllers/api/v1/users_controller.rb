@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
 
     if @user.valid?
       token = encode_token({ name: @user.name })
-      render json: { message: "Registered successful." }, status: :created
+      render json: { message: "#{@user.name} created successfully"}, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class Api::V1::UsersController < ApplicationController
     puts @user
     if @user&.authenticate(params[:password])
       token = encode_token({ name: @user.name })
-      render json: { name: @user.name, token: }
+      render json: { name: @user.name, id: @user.id, token: }
     else
       render json: { error: 'Failed to login' }, status: :not_acceptable
     end
@@ -45,7 +45,7 @@ class Api::V1::UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user
+      render json: { message: "Updated successfully" }
     else
       render json: @user.errors, status: :unprocessable_entity
     end

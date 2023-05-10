@@ -27,7 +27,7 @@ class Api::V1::TutorsController < ApplicationController
     @tutor = Tutor.new(tutor_params)
 
     if @tutor.save
-      render json: { message: "Created successfully"}, status: :created
+      render json: { message: 'Created successfully' }, status: :created
     else
       render json: @tutor.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class Api::V1::TutorsController < ApplicationController
   # PATCH/PUT /tutors/1
   def update
     if @tutor.update(tutor_params)
-      render json: { message: "Updated successfully" }
+      render json: { message: 'Updated successfully' }
     else
       render json: @tutor.errors, status: :unprocessable_entity
     end

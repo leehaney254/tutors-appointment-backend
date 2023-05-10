@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     return unless decoded_token
 
     name = decoded_token[0]['name']
-    @user = User.find_by(name: name)
+    @user = User.find_by(name:)
   end
 
   def authorized

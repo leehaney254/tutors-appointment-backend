@@ -29,7 +29,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     if @reservation.save
 
-      render json: { message: "Created successfully"}, status: :created
+      render json: { message: 'Created successfully' }, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class Api::V1::ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   def update
     if @reservation.update(reservation_params)
-      render json: { message: "Updated successfully" }
+      render json: { message: 'Updated successfully' }
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end

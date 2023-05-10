@@ -24,8 +24,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
-      token = encode_token({ name: @user.name })
-      render json: { message: "#{@user.name} created successfully"}, status: :created
+      render json: { message: "#{@user.name} created successfully" }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -45,7 +44,7 @@ class Api::V1::UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: { message: "Updated successfully" }
+      render json: { message: 'Updated successfully' }
     else
       render json: @user.errors, status: :unprocessable_entity
     end

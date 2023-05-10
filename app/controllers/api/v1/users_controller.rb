@@ -21,12 +21,24 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
 
-    if @user.save
-      render json: @user, status: :created
+    if @user.valid?
+      token = encode_token({name: @user.name})
+      render json: {user: @user, token: token}, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def login
+    @user = User.find_by(name: params[:name])
+    puts @user
+    if @user && @user.authenticate(params[:password])
+        token = encode_token({name: @user.name})
+        render json: {name: @user.name, token: token}
+    else
+        render json: {error: 'Failed to login'}, status: :not_acceptable
     end
   end
 
@@ -55,6 +67,6 @@ class Api::V1::UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :password)
   end
 end

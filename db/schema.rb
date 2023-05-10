@@ -18,6 +18,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_143317) do
     t.integer "user_id"
     t.integer "tutor_id"
     t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tutors", force: :cascade do |t|
     t.string "name"
@@ -31,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_143317) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

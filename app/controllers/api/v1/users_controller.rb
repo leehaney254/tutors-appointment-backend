@@ -24,8 +24,8 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
-      token = encode_token({name: @user.name})
-      render json: {user: @user, token: token}, status: :created
+      token = encode_token({ name: @user.name })
+      render json: { user: @user, token: }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -34,11 +34,11 @@ class Api::V1::UsersController < ApplicationController
   def login
     @user = User.find_by(name: params[:name])
     puts @user
-    if @user && @user.authenticate(params[:password])
-        token = encode_token({name: @user.name})
-        render json: {name: @user.name, token: token}
+    if @user&.authenticate(params[:password])
+      token = encode_token({ name: @user.name })
+      render json: { name: @user.name, token: }
     else
-        render json: {error: 'Failed to login'}, status: :not_acceptable
+      render json: { error: 'Failed to login' }, status: :not_acceptable
     end
   end
 

@@ -45,6 +45,10 @@ class Api::V1::TutorsController < ApplicationController
   # DELETE /tutors/1
   def destroy
     @tutor.destroy
+    return unless @tutor
+
+    @tutor.destroy
+    render json: { message: 'Deleted successfully' }
   end
 
   private

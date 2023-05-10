@@ -12,7 +12,7 @@ class Api::V1::ReservationsController < ApplicationController
         id: reservation.id,
         user_id: reservation.user_id,
         tutor_id: reservation.tutor_id,
-        date_reserved: reservation.date
+        date: reservation.date
       }
     end
     render json: response
@@ -50,7 +50,7 @@ class Api::V1::ReservationsController < ApplicationController
     return unless @reservation
 
     @reservation.destroy
-    render json: 'Deleted successfully'
+    render json: { message: 'Deleted successfully' }
   end
 
   private

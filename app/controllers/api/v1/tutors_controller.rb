@@ -1,4 +1,5 @@
 class Api::V1::TutorsController < ApplicationController
+  before_action :authorized
   before_action :set_tutor, only: %i[show update destroy]
 
   # GET /tutors

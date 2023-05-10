@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
 
     if @user.valid?
       token = encode_token({ name: @user.name })
-      render json: { user: @user, token: }, status: :created
+      render json: { message: "Registered successful." }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -53,7 +53,7 @@ class Api::V1::UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy
+    render json: { message: 'Signed out successfully' }
   end
 
   private

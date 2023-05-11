@@ -32,10 +32,9 @@ class Api::V1::UsersController < ApplicationController
 
   def login
     @user = User.find_by(name: params[:name])
-    puts @user
     if @user&.authenticate(params[:password])
       token = encode_token({ name: @user.name })
-      render json: { name: @user.name, id: @user.id, token: }
+      render json: { name: @user.name, id: @user.id, role: @user.role, token: }
     else
       render json: { error: 'Failed to login' }, status: :not_acceptable
     end

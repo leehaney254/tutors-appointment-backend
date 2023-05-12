@@ -10,7 +10,7 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
     end
 
     before do
-      @user = FactoryBot.create(:user, name: 'user1', password: 'password')
+      @user = FactoryBot.create(:user, name: Faker::Name.name, password: 'password')
       @tutor = Tutor.create(id: '1', name: 'tutor1', image: 'image1.com', speciality: 'speciality1', bio: 'bio1',
                             price: 100)
       token = JWT.encode({ name: @user.name }, 'mysecret')

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Reservation', type: :model do
   before do
-    @user = User.create(name: 'user1', password: 'password')
-    @tutor = Tutor.create(name: 'tutor1', image: 'image1.com', speciality: 'speciality1', bio: 'bio1', price: 100)
+    @user = User.create(name: Faker::Name.name, password: 'password')
+    @tutor = Tutor.create(name: Faker::Name.name, image: 'image1.com', speciality: 'speciality1', bio: 'bio1', price: 100)
     @reservation = Reservation.new(user_id: @user.id, tutor_id: @tutor.id, date: '2021-04-20')
   end
 

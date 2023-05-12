@@ -7,8 +7,8 @@ RSpec.describe 'Users', type: :request do
       post '/api/v1/users', params: { user: { name: user_name, password: 'password' } }
       expect(response).to have_http_status(:created)
       expect(json).to eq({
-        'message' => "#{user_name} created successfully"
-      })
+                           'message' => "#{user_name} created successfully"
+                         })
     end
 
     it 'returns error when username does not exist' do

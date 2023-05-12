@@ -12,10 +12,10 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
     before do
       @user = FactoryBot.create(:user, name: 'user1', password: 'password')
       @tutor = Tutor.create(id: '1', name: 'tutor1', image: 'image1.com', speciality: 'speciality1', bio: 'bio1',
-        price: 100)
+                            price: 100)
       token = JWT.encode({ name: @user.name }, 'mysecret')
       @headers = { 'Authorization' => "Bearer #{token}" }
-      @reservation_params = {user_id: @user.id, tutor_id: @tutor.id, date: '2021-04-20'}
+      @reservation_params = { user_id: @user.id, tutor_id: @tutor.id, date: '2021-04-20' }
     end
 
     it 'Should get an empty array' do
@@ -32,7 +32,7 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
 
     it 'Should not create a reservation' do
       post '/api/v1/reservations', headers: @headers, as: :json,
-                             params: { user_id: @user.id, tutor_id: @tutor.id, date: '' }
+                                   params: { user_id: @user.id, tutor_id: @tutor.id, date: '' }
       expect(response).to have_http_status(:unprocessable_entity)
       expect(json).to be_a(Hash)
       expect(json).not_to be_empty

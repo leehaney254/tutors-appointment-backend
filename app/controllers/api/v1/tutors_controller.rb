@@ -7,7 +7,7 @@ class Api::V1::TutorsController < ApplicationController
     @tutors = Tutor.all
 
     if @tutors.empty?
-      render json: { message: 'There are no tutors!' }, status: :not_found
+      render json: { message: 'There are no tutors!' }, status: :ok
     else
       render json: @tutors
     end

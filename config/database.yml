@@ -85,6 +85,4 @@ test:
 #
 production:
   <<: *default
-  database: tutors_appointment_backend_production
-  username: <%= ENV['POSTGRES_USERNAME'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

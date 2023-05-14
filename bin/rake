@@ -2,7 +2,3 @@
 require_relative "../config/boot"
 require "rake"
 Rake.application.run
-
-task 'assets:precompile' do
-  puts 'Skipping assets:precompile'
-end

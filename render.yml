@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: backend-tutors-database
+    databaseName: backend_tutors
+    user: backend_tutors_user
 
 services:
   - type: web
-    name: mysite
+    name: tutors_backend
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: backend-tutors-database
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false

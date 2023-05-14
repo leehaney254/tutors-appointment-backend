@@ -8,3 +8,7 @@ Rails.application.load_tasks
 task 'assets:precompile' do
   puts 'Skipping assets:precompile'
 end
+
+task 'assets:clean' do
+  puts 'Skipping assets:clean'
+end

@@ -52,7 +52,7 @@ The hosted app can be found [here]()
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Documentation <a name="Documentation"></a>
-The apps documentation can be found [here.]()
+The apps documentation can be found [here.](https://documenter.getpostman.com/view/21501737/2s93ecxWHQ)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

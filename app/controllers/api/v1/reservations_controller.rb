@@ -6,7 +6,7 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     id = reservation_params[:user_id]
     @reservations = Reservation.where(user_id: id)
-    tutor_ids = @reservations.pluck(:tutor_id) 
+    tutor_ids = @reservations.pluck(:tutor_id)
     @tutors = Tutor.where(id: tutor_ids)
 
     render json: @tutors

@@ -6,7 +6,6 @@
 - [📖 Tutors Appointment Backend ](#-tutors-appointment-backend-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
-    - [Live Link ](#live-link-)
     - [Documentation ](#documentation-)
     - [Front end ](#front-end-)
     - [Loom Video ](#loom-video-)
@@ -45,11 +44,6 @@
     <li><a href="https://www.postgresql.org/">Postgresql</a></li>
   </ul>
 </details>
-
-### Live Link <a name="Live link"></a>
-The hosted app can be found [here](https://tutors-backend.onrender.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Documentation <a name="Documentation"></a>
 The apps documentation can be found [here.](https://documenter.getpostman.com/view/21501737/2s93ecxWHQ)

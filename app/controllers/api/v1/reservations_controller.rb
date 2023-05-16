@@ -4,18 +4,12 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    response = []
-    @reservations = Reservation.all
+    id = reservation_params[:user_id]
+    @reservations = Reservation.where(user_id: id)
+    tutor_ids = @reservations.pluck(:tutor_id) 
+    @tutors = Tutor.where(id: tutor_ids)
 
-    @reservations.each do |reservation|
-      response << {
-        id: reservation.id,
-        user_id: reservation.user_id,
-        tutor_id: reservation.tutor_id,
-        date: reservation.date
-      }
-    end
-    render json: response
+    render json: @tutors
   end
 
   # GET /reservations/1

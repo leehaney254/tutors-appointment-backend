@@ -8,7 +8,6 @@
     - [Tech Stack ](#tech-stack-)
     - [Documentation ](#documentation-)
     - [Front end ](#front-end-)
-    - [Loom Video ](#loom-video-)
     - [ERD Diagram ](#erd-diagram-)
     - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
@@ -55,11 +54,6 @@ The apps front-end can be found [here.](https://github.com/leehaney254/tutors-ap
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Loom Video <a name="Loom Video"></a>
-The loom video can be found [here]()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### ERD Diagram <a name="ERD Diagram"></a>
 The ERD diagram can be found [here.](https://drawsql.app/teams/leehaneys-team/diagrams/tutor-erd)
 
@@ -84,7 +78,7 @@ To get a local copy up and running, follow these steps:
 To get a local copy up and running, follow these steps:
 - Create a local directory where you can clone the project
 - Clone the project to your directory by running
-  - `https://github.com/leehaney254/tutors-appointment-backend.git`
+  - `git clone https://github.com/leehaney254/tutors-appointment-backend.git`
 - Run `Bundle install`
 - Create a .env file and add values for `POSTGRES_USERNAME and POSTGRES_PASSWORD`
 - Run `rails db:create db:migrate`

@@ -19,7 +19,7 @@ RSpec.describe Api::V1::ReservationsController, type: :request do
     end
 
     it 'Should get an empty array' do
-      get '/api/v1/reservations', headers: @headers, as: :json
+      get '/api/v1/reservations?user_id=1', headers: @headers, as: :json
       expect(response).to have_http_status(200)
       expect(json).to eq([])
     end

@@ -51,7 +51,6 @@ The apps documentation can be found [here.](https://documenter.getpostman.com/vi
 
 ### Front end <a name="Front end"></a>
 The apps front-end can be found [here.](https://github.com/leehaney254/tutors-appointment-frontend.git)
-The frontend PR can be found [here.]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

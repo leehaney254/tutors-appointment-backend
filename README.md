@@ -31,6 +31,7 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
+
 <details>
 <summary>Server</summary>
   <ul>
@@ -45,16 +46,23 @@
 </details>
 
 ### Documentation <a name="Documentation"></a>
+
 The apps documentation can be found [here.](https://documenter.getpostman.com/view/21501737/2s93ecxWHQ)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Front end <a name="Front end"></a>
+
 The apps front-end can be found [here.](https://github.com/leehaney254/tutors-appointment-frontend.git)
+
+### Kanban board <a name="Kanban board"></a>
+
+The [Kanban board](https://github.com/users/leehaney254/projects/1)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### ERD Diagram <a name="ERD Diagram"></a>
+
 The ERD diagram can be found [here.](https://drawsql.app/teams/leehaneys-team/diagrams/tutor-erd)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -76,17 +84,20 @@ The ERD diagram can be found [here.](https://drawsql.app/teams/leehaneys-team/di
 To get a local copy up and running, follow these steps:
 
 To get a local copy up and running, follow these steps:
+
 - Create a local directory where you can clone the project
 - Clone the project to your directory by running
   - `git clone https://github.com/leehaney254/tutors-appointment-backend.git`
 - Run `Bundle install`
 - Create a .env file and add values for `POSTGRES_USERNAME and POSTGRES_PASSWORD`
 - Run `rails db:create db:migrate`
-- Run `rails db:seed` this also creates the admin credentials who has the priviledges to create and delete tutor 
-- Run  `rails s`
+- Run `rails db:seed` this also creates the admin credentials who has the priviledges to create and delete tutor
+- Run `rails s`
 
 ### Prerequisites
+
 To run the app you need:
+
 - A code editor
 - A browser
 - Install Nodejs
@@ -138,7 +149,7 @@ To run tests, run the following command:
 - GitHub: [@codehass](https://github.com/codehass)
 - Twitter: [@hassanelourdy](https://twitter.com/hassanelourdy)
 - LinkedIn: [Hassan El OUARDY](https://www.linkedin.com/in/hassan-el-ouardy-360b99169/)
-  
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

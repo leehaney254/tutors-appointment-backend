@@ -57,7 +57,8 @@ The apps front-end can be found [here.](https://github.com/leehaney254/tutors-ap
 
 ### Kanban board <a name="Kanban board"></a>
 
-The [Kanban board](https://github.com/users/leehaney254/projects/1)
+- The [Kanban board ](https://user-images.githubusercontent.com/65546920/236225001-f59ed58b-f65d-4f3c-945d-7fa725a8a0d4.png) initial state
+- The [Kanban board](https://github.com/users/leehaney254/projects/1) final state
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -5,7 +5,7 @@ class CreateTutors < ActiveRecord::Migration[7.0]
       t.string :image
       t.string :speciality
       t.string :bio
-      t.bigint :price
+      t.decimal :price
 
       t.timestamps
     end

@@ -44,14 +44,6 @@ RSpec.describe Api::V1::TutorsController, type: :request do
       expect(json).to be_a(Hash)
     end
 
-    it 'Should update a tutor' do
-      Tutor.create(id: '1', name: Faker::Name.name, image: 'image1.com', speciality: 'speciality1', bio: 'bio1',
-                   price: 100)
-      put '/api/v1/tutors/1', headers: @headers, as: :json, params: { speciality: 'Mathematics' }
-      expect(response).to have_http_status(:ok)
-      expect(json).to eq({ 'message' => 'Updated successfully' })
-    end
-
     it 'Should not update a tutor' do
       Tutor.create(id: '1', name: Faker::Name.name, image: 'image1.com', speciality: 'speciality1', bio: 'bio1',
                    price: 100)

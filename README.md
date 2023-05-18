@@ -51,6 +51,7 @@ The apps documentation can be found [here.](https://documenter.getpostman.com/vi
 
 ### Front end <a name="Front end"></a>
 The apps front-end can be found [here.](https://github.com/leehaney254/tutors-appointment-frontend.git)
+The frontend PR can be found [here.]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,6 +83,7 @@ To get a local copy up and running, follow these steps:
 - Run `Bundle install`
 - Create a .env file and add values for `POSTGRES_USERNAME and POSTGRES_PASSWORD`
 - Run `rails db:create db:migrate`
+- Run `rails db:seed` this also creates the admin credentials who has the priviledges to create and delete tutor 
 - Run  `rails s`
 
 ### Prerequisites

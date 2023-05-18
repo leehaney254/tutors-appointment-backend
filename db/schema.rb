@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_143317) do
   enable_extension "plpgsql"
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "tutor_id"
+    t.bigint "user_id"
+    t.bigint "tutor_id"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_143317) do
     t.string "image"
     t.string "speciality"
     t.string "bio"
-    t.bigint "price"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
